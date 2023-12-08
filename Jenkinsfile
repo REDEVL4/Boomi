@@ -13,14 +13,6 @@ pipeline
     }
     stages
     {
-        stage('Install Packages') {
-            steps {
-                script {
-                    // Update package information and install packages
-                    sh ' apk update && apk add --no-cache jq && apk add --no-cache libxml2-utils'
-                }
-            }
-        }
         stage('Build')
         {
             steps
@@ -28,6 +20,7 @@ pipeline
                 echo "Build process started"
                 sh '''
                 echo "Build process in progress"
+                source bin/exports.sh && source bin/publishAtom.sh >> index.html
                 '''
                 echo "Build process Ended"
             }   
