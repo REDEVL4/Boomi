@@ -17,7 +17,7 @@ pipeline
             steps {
                 script {
                     // Update package information and install packages
-                    sh 'sudo apt-get update && sudo apt-get install -y lsb-release jq libxml2-utils python3-pip'
+                    sh 'apt-get install -y lsb-release jq libxml2-utils python3-pip'
                 }
             }
         }
