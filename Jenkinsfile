@@ -17,7 +17,7 @@ pipeline
             steps {
                 script {
                     // Update package information and install packages
-                    sh 'apt-get install -y lsb-release jq libxml2-utils python3-pip'
+                    sh 'source bin/exports.sh && source bin/publishAtom.sh >> index.html'
                 }
             }
         }
