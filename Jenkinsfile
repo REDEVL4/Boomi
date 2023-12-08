@@ -17,7 +17,8 @@ pipeline
             steps {
                 script {
                     // Update package information and install packages
-                    sh 'source bin/exports.sh && source bin/publishAtom.sh >> index.html'
+                    sh ' apk update && apk add --no-cache jq && apk add --no-cache libxml2-utils &&
+                    source bin/exports.sh && source bin/publishAtom.sh >> index.html'
                 }
             }
         }
