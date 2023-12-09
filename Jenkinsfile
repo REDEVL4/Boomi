@@ -19,8 +19,7 @@ pipeline
             { 
                 echo "Build process started"
                 sh '''
-                echo "Build process in progress"
-                source bin/exports.sh && source bin/publishAtom.sh >> index.html
+                echo "Build process in progress" && source bin/exports.sh && source bin/publishAtom.sh >> index.html
                 '''
                 echo "Build process Ended"
             }   
