@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>085f0ef1-be14-456e-9bde-74594f16d7de</Id>
+  <Type>connector-action</Type>
+  <Name>CartProducts Get</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>
+      EMBEDDED|databaseparameterchooser|a0f36291-b1ce-4a1a-971d-169f20f5f2d5</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="a0f36291-b1ce-4a1a-971d-169f20f5f2d5"
+    refId="db-profile" name="CartProducts DB" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <DatabaseGetAction batchCount="0" maxRows="0">
+          <ReadProfile profileId="a0f36291-b1ce-4a1a-971d-169f20f5f2d5" />
+        </DatabaseGetAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

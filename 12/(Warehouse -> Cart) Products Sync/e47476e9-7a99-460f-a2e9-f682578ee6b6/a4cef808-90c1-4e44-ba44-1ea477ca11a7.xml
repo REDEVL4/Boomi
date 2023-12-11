@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>a4cef808-90c1-4e44-ba44-1ea477ca11a7</Id>
+  <Type>connector-settings</Type>
+  <Name>mysql_local_conn</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/Process Library/Boomi Training">
+  6311817</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseConnectionSettings username="root"
+    password="Kg94kSasfc2CjQzJYthPLQnXSQCKJkPfiTaa+vYQ6JT1zUN28diyxwySNx5GkVsWn6zHO5mJSTpaakjhOpznsOrQlVF+GBIDkM3GDzqw6cDlMhAUmam9NQzVku9/+6LsrmUpYsMtxvNgKtntAzsvL3tnwXi1JvdThxmC55LGwyo="
+    host="127.0.0.1" port="3306" dbname="TestDb" additional=""
+    driverId="mysql" isPoolEnabled="false"
+    urlFormat="jdbc:mysql://{0}:{1}/{2}{3}"
+    className="com.mysql.jdbc.Driver">
+      <WriteOptions writeSQLToFile="false" sqlFilePath="" />
+      <AdapterPoolInfo maxActive="-1" maxIdle="-1" minIdle="0"
+      exhaustedAction="1" maxWait="0" maxIdleTime="0"
+      testOnBorrow="false" testOnReturn="false" testIdle="false"
+      timeBetweenRuns="0" numberOfTests="0" validationQuery="" />
+    </DatabaseConnectionSettings>
+  </Object>
+</Component>

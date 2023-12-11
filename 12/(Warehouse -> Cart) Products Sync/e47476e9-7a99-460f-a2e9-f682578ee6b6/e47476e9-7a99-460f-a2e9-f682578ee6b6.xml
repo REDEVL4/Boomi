@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>e47476e9-7a99-460f-a2e9-f682578ee6b6</Id>
+  <Type>process</Type>
+  <Name>(Warehouse -&gt; Cart) Products Sync</Name>
+  <Version>38</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>overrides-enabled</Name>
+      <Value>false</Value>
+    </Property>
+    <Property>
+      <Name>startshape-action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>startshape-type</Name>
+      <Value>CONNECTOR</Value>
+    </Property>
+    <Property>
+      <Name>startshape-connector-type</Name>
+      <Value>database</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape1.connection" name="mysql_local_conn" />
+    <Ref compId="085f0ef1-be14-456e-9bde-74594f16d7de"
+    refId="shape1.operation" name="CartProducts Get" />
+    <Ref compId="da70661c-59d9-492b-b3d8-5883f51d0393"
+    refId="shape2" name="New Map 2" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape3-step1-profile" name="CartProducts Json" />
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape7.connection" name="mysql_local_conn" />
+    <Ref compId="8fe198b7-0339-4dde-bd21-ec222a16b369"
+    refId="shape7.operation"
+    name="LocalSQL WarehouseProduct GET" />
+    <Ref compId="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+    refId="shape9" name="CartProduct" />
+    <Ref compId="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+    refId="shape13.documentCache" name="CartProduct" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape13-docCacheKeyParam-0-docCacheKeyParam-0-profile"
+    name="CartProducts Json" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape13-docCacheKeyParam-1-docCacheKeyParam-1-profile"
+    name="CartProducts Json" />
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape12.connection" name="mysql_local_conn" />
+    <Ref compId="dbfb38cc-41f5-4cfc-9f59-40da5421f2c3"
+    refId="shape12.operation"
+    name="LocalSQL CartProducts Update" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape7-parameter-undefined-profile"
+    name="CartProducts Json" />
+    <Ref compId="8ca4a40a-9d91-4dc0-8489-8079aff4056c"
+    refId="shape22"
+    name="WarehouseProductsResponse DB &gt; WarehouseProducts Json" />
+    <Ref compId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+    refId="shape15-parameter-0-profile"
+    name="warehouseProduct Json" />
+    <Ref compId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+    refId="shape15-parameter-1-profile"
+    name="warehouseProduct Json" />
+    <Ref compId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+    refId="shape21-parameter-2-profile"
+    name="warehouseProduct Json" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape24-0-profile" name="CartProducts Json" />
+    <Ref compId="d8890ae6-9f3c-44aa-8271-54298487c05e"
+    refId="shape31"
+    name="test Json &gt; CartProducts Update Request Json" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape32-parameter-1-profile" name="CartProducts Json" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape32-parameter-2-profile" name="CartProducts Json" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape32-parameter-3-profile" name="CartProducts Json" />
+    <Ref compId="9caca3d5-76ad-475e-a1df-6eca06cf16c6"
+    refId="shape34" name="New Map 3" />
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="shape36-parameter-1-profile" name="CartProducts Json" />
+    <Ref compId="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+    refId="shape39" name="CartProduct" />
+    <Ref compId="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+    refId="shape40.documentCache" name="CartProduct" />
+  </References>
+  <Description />
+  <Object>
+    <process allowSimultaneous="false" enableUserLog="false"
+    updateRunDates="true" processLogOnErrorOnly="false"
+    workload="general" purgeDataImmediately="false">
+      <shapes>
+        <shape name="shape1" userlabel="" image="start" x="48.0"
+        y="46.0" shapetype="start">
+          <configuration>
+            <connectoraction operationId="085f0ef1-be14-456e-9bde-74594f16d7de"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Get" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|a0f36291-b1ce-4a1a-971d-169f20f5f2d5|085f0ef1-be14-456e-9bde-74594f16d7de"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters>
+                <parametervalue name="updatedAtGreaterThan"
+                valueType="static" elementToSetId="12"
+                elementToSetName="updatedAtGreaterThan">
+                  <staticparameter staticproperty="1" />
+                </parametervalue>
+              </parameters>
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape1.dragpoint1" toShape="shape2"
+            x="224.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape2" userlabel="" image="map_icon"
+        x="240.0" y="48.0" shapetype="map">
+          <configuration>
+            <map mapId="da70661c-59d9-492b-b3d8-5883f51d0393" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape2.dragpoint1" toShape="shape3"
+            x="416.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape3" userlabel="" image="dataprocess_icon"
+        x="432.0" y="48.0" shapetype="dataprocess">
+          <configuration>
+            <dataprocess>
+              <step name="Split Documents" processtype="8"
+              index="1" key="1">
+                <documentsplit profileType="json">
+                  <SplitOptions>
+                    <JSONOptions profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    linkElementKey="7"
+                    linkElementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)" />
+                  </SplitOptions>
+                </documentsplit>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape3.dragpoint1" toShape="shape4"
+            x="608.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape4" image="flowcontrol_icon" x="624.0"
+        y="48.0" shapetype="flowcontrol">
+          <configuration>
+            <flowcontrol chunkStyle="threadOnly" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape4.dragpoint1" toShape="shape10"
+            x="800.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape5" userlabel="" image="message_icon"
+        x="432.0" y="1968.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>{1}</msgTxt>
+              <msgParameters>
+                <parametervalue valueType="current" key="0" />
+              </msgParameters>
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape5.dragpoint1" toShape="shape6"
+            x="608.0" y="1976.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape6" image="stop_icon" x="624.0" y="1968.0"
+        shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape7" userlabel=""
+        image="connectoraction_icon" x="1392.0" y="208.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="8fe198b7-0339-4dde-bd21-ec222a16b369"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Get" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|a1b62501-9386-43bc-b3e1-ff228f2c9de8|8fe198b7-0339-4dde-bd21-ec222a16b369"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters>
+                <parametervalue name="WarehouseId"
+                valueType="profile" elementToSetId="15"
+                elementToSetName="WarehouseId">
+                  <profileelement elementId="7"
+                  elementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+                  profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                  profileType="profile.json" />
+                </parametervalue>
+                <parametervalue name="ProductId"
+                valueType="profile" elementToSetId="16"
+                elementToSetName="ProductId">
+                  <profileelement elementId="5"
+                  elementName="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+                  profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                  profileType="profile.json" />
+                </parametervalue>
+              </parameters>
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape7.dragpoint1" toShape="shape22"
+            x="1568.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape8" userlabel="" image="branch_icon"
+        x="48.0" y="1168.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape8.dragpoint1" toShape="shape9"
+            identifier="1" text="1" x="224.0" y="1176.0" />
+            <dragpoint name="shape8.dragpoint2" toShape="unset"
+            identifier="2" text="2" x="224.0" y="1198.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape9" userlabel="" image="doccacheload_icon"
+        x="240.0" y="1168.0" shapetype="doccacheload">
+          <configuration>
+            <doccacheload docCache="d6d426e0-8297-4feb-8f00-a526e1f78d96" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape10" image="catcherrors_icon" x="816.0"
+        y="48.0" shapetype="catcherrors">
+          <configuration>
+            <catcherrors retryCount="0" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape10.dragpoint1" toShape="shape38"
+            identifier="default" text="Try" x="992.0" y="56.0" />
+            <dragpoint name="shape10.dragpoint2" toShape="shape18"
+            identifier="error" text="Catch" x="992.0" y="1016.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape12" userlabel=""
+        image="connectoraction_icon" x="2928.0" y="848.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="dbfb38cc-41f5-4cfc-9f59-40da5421f2c3"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Send" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|900c8cc4-25c3-41d1-925d-fd25157e44a9|dbfb38cc-41f5-4cfc-9f59-40da5421f2c3"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters />
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape12.dragpoint1" toShape="shape17"
+            x="3104.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape13" userlabel=""
+        image="doccacheremove_icon" x="48.0" y="1488.0"
+        shapetype="doccacheremove">
+          <configuration>
+            <doccacheremove docCache="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+            docCacheIndex="1" removeAllDocuments="false">
+              <cacheKeyValues>
+                <cacheKeyValue cacheKeyId="2">
+                  <parametervalue valueType="profile" key="0">
+                    <profileelement elementId="7"
+                    elementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+                    profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </cacheKeyValue>
+                <cacheKeyValue cacheKeyId="4">
+                  <parametervalue valueType="profile" key="1">
+                    <profileelement elementId="5"
+                    elementName="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+                    profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </cacheKeyValue>
+              </cacheKeyValues>
+            </doccacheremove>
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape14" image="stop_icon" x="3312.0"
+        y="848.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape15" userlabel="" image="notify_icon"
+        x="1968.0" y="208.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>' Fetched Warehouse Product with
+              WarehouseId: {1}, ProductId: {2} '</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="profile" key="0">
+                  <profileelement elementId="7"
+                  elementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+                  profileId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+                  profileType="profile.json" />
+                </parametervalue>
+                <parametervalue valueType="profile" key="1">
+                  <profileelement elementId="10"
+                  elementName="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+                  profileId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+                  profileType="profile.json" />
+                </parametervalue>
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape15.dragpoint1" toShape="shape16"
+            x="2144.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape16" image="stop_icon" x="2160.0"
+        y="208.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape17" userlabel="" image="notify_icon"
+        x="3120.0" y="848.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>'Cart products updated for ProductId =
+              {1} and WarehoueId= {2} '</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters />
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape17.dragpoint1" toShape="shape14"
+            x="3296.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape18" image="notify_icon" x="1008.0"
+        y="1008.0" shapetype="notify">
+          <configuration>
+            <notify />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape18.dragpoint1" toShape="shape19"
+            x="1184.0" y="1016.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape19" image="stop_icon" x="1200.0"
+        y="1008.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape20" userlabel="" image="branch_icon"
+        x="1776.0" y="208.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape20.dragpoint1" toShape="shape15"
+            identifier="1" text="1" x="1952.0" y="216.0" />
+            <dragpoint name="shape20.dragpoint2" toShape="shape21"
+            identifier="2" text="2" x="1952.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape21" userlabel=""
+        image="documentproperties_icon" x="1968.0" y="368.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - AvailableStockQuantity"
+              propertyId="process.AvailableStockQuantity"
+              defaultValue="" isTradingPartner="false"
+              isDynamicCredential="false" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="2">
+                    <profileelement elementId="11"
+                    elementName="Quantity (Root/Array/ArrayElement1/Object/Quantity)"
+                    profileId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape21.dragpoint1" toShape="shape40"
+            x="2144.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape22" userlabel="" image="map_icon"
+        x="1584.0" y="208.0" shapetype="map">
+          <configuration>
+            <map mapId="8ca4a40a-9d91-4dc0-8489-8079aff4056c" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape22.dragpoint1" toShape="shape20"
+            x="1760.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape23" image="stop_icon" x="48.0" y="1648.0"
+        shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape24" userlabel="Calculate Availability"
+        image="decision_icon" x="2736.0" y="528.0"
+        shapetype="decision">
+          <configuration>
+            <decision name="Calculate Availability"
+            comparison="greaterthan">
+              <decisionvalue valueType="profile">
+                <profileelement elementId="9"
+                elementName="Quantity (Root/Array/ArrayElement1/Object/Quantity)"
+                profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                profileType="profile.json" />
+              </decisionvalue>
+              <decisionvalue valueType="process">
+                <processparameter processproperty="AvailableStockQuantity"
+                processpropertydefaultvalue="" />
+              </decisionvalue>
+            </decision>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape24.dragpoint1" toShape="shape26"
+            identifier="true" text="True" x="2912.0" y="536.0" />
+            <dragpoint name="shape24.dragpoint2" toShape="shape28"
+            identifier="false" text="False" x="2912.0" y="696.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape25" image="branch_icon" x="2352.0"
+        y="368.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape25.dragpoint1" toShape="shape35"
+            identifier="1" text="1" x="2528.0" y="376.0" />
+            <dragpoint name="shape25.dragpoint2" toShape="shape30"
+            identifier="2" text="2" x="2528.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape26" userlabel=""
+        image="documentproperties_icon" x="2928.0" y="528.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - IsStockAvailable"
+              propertyId="process.IsStockAvailable" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="1">
+                    <staticparameter staticproperty="0" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape26.dragpoint1" toShape="shape27"
+            x="3104.0" y="536.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape27" image="stop_icon" x="3120.0"
+        y="528.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape28" userlabel=""
+        image="documentproperties_icon" x="2928.0" y="688.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - IsStockAvailable"
+              propertyId="process.IsStockAvailable" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="1">
+                    <staticparameter staticproperty="1" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape28.dragpoint1" toShape="shape29"
+            x="3104.0" y="696.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape29" image="stop_icon" x="3120.0"
+        y="688.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape30" userlabel="" image="message_icon"
+        x="2544.0" y="848.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>'{"test":""}'</msgTxt>
+              <msgParameters />
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape30.dragpoint1" toShape="shape31"
+            x="2720.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape31" userlabel="" image="map_icon"
+        x="2736.0" y="848.0" shapetype="map">
+          <configuration>
+            <map mapId="d8890ae6-9f3c-44aa-8271-54298487c05e" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape31.dragpoint1" toShape="shape12"
+            x="2912.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape32" userlabel=""
+        image="documentproperties_icon" x="1200.0" y="208.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - WarehouseId"
+              propertyId="process.WarehouseId" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="1">
+                    <profileelement elementId="7"
+                    elementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+                    profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - ProductId"
+              propertyId="process.ProductId" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="2">
+                    <profileelement elementId="5"
+                    elementName="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+                    profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - CartId"
+              propertyId="process.CartId" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="3">
+                    <profileelement elementId="6"
+                    elementName="CartId (Root/Array/ArrayElement1/Object/CartId)"
+                    profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape32.dragpoint1" toShape="shape7"
+            x="1376.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape33" image="branch_icon" x="48.0"
+        y="1808.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape33.dragpoint1" toShape="unset"
+            identifier="1" text="1" x="224.0" y="1798.0" />
+            <dragpoint name="shape33.dragpoint2" toShape="shape34"
+            identifier="2" text="2" x="224.0" y="1976.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape34" userlabel="" image="map_icon"
+        x="240.0" y="1968.0" shapetype="map">
+          <configuration>
+            <map mapId="9caca3d5-76ad-475e-a1df-6eca06cf16c6" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape34.dragpoint1" toShape="shape5"
+            x="416.0" y="1976.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape35" image="branch_icon" x="2544.0"
+        y="368.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape35.dragpoint1" toShape="shape36"
+            identifier="1" text="1" x="2720.0" y="376.0" />
+            <dragpoint name="shape35.dragpoint2" toShape="shape24"
+            identifier="2" text="2" x="2720.0" y="536.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape36" userlabel="" image="message_icon"
+        x="2736.0" y="368.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>`AvailableStockQuantity:{1}, CartQuantity:{2}
+              `</msgTxt>
+              <msgParameters>
+                <parametervalue valueType="process" key="0">
+                  <processparameter processproperty="AvailableStockQuantity"
+                  processpropertydefaultvalue="" />
+                </parametervalue>
+                <parametervalue valueType="profile" key="1">
+                  <profileelement elementId="9"
+                  elementName="Quantity (Root/Array/ArrayElement1/Object/Quantity)"
+                  profileId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+                  profileType="profile.json" />
+                </parametervalue>
+              </msgParameters>
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape36.dragpoint1" toShape="shape37"
+            x="2912.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape37" image="stop_icon" x="2928.0"
+        y="368.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape38" image="branch_icon" x="1008.0"
+        y="48.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape38.dragpoint1" toShape="shape39"
+            identifier="1" text="1" x="1184.0" y="56.0" />
+            <dragpoint name="shape38.dragpoint2" toShape="shape32"
+            identifier="2" text="2" x="1184.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape39" userlabel=""
+        image="doccacheload_icon" x="1200.0" y="48.0"
+        shapetype="doccacheload">
+          <configuration>
+            <doccacheload docCache="d6d426e0-8297-4feb-8f00-a526e1f78d96" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape40" userlabel=""
+        image="doccacheretrieve_icon" x="2160.0" y="368.0"
+        shapetype="doccacheretrieve">
+          <configuration>
+            <doccacheretrieve docCache="d6d426e0-8297-4feb-8f00-a526e1f78d96"
+            docCacheIndex="1" loadAllDoc="false"
+            emptyCacheBehavior="stopprocess">
+              <cacheKeyValues>
+                <cacheKeyValue cacheKeyId="2">
+                  <parametervalue valueType="process" key="0">
+                    <processparameter processproperty="WarehouseId"
+                    processpropertydefaultvalue="" />
+                  </parametervalue>
+                </cacheKeyValue>
+                <cacheKeyValue cacheKeyId="4">
+                  <parametervalue valueType="process" key="1">
+                    <processparameter processproperty="ProductId"
+                    processpropertydefaultvalue="" />
+                  </parametervalue>
+                </cacheKeyValue>
+                <cacheKeyValue cacheKeyId="7">
+                  <parametervalue valueType="process" key="2">
+                    <processparameter processproperty="CartId"
+                    processpropertydefaultvalue="" />
+                  </parametervalue>
+                </cacheKeyValue>
+              </cacheKeyValues>
+            </doccacheretrieve>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape40.dragpoint1" toShape="shape25"
+            x="2336.0" y="376.0" />
+          </dragpoints>
+        </shape>
+      </shapes>
+    </process>
+  </Object>
+</Component>

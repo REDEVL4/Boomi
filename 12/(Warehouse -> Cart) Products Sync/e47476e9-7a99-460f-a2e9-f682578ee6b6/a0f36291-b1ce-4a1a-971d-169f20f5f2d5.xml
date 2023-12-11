@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>a0f36291-b1ce-4a1a-971d-169f20f5f2d5</Id>
+  <Type>profile.db</Type>
+  <Name>CartProducts DB</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>dbsubtype</Name>
+      <Value>dbread</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseProfile strict="true" version="2">
+      <ProfileProperties>
+        <DatabaseGeneralInfo executionType="dbread" />
+      </ProfileProperties>
+      <DataElements>
+        <DBStatement key="2" name="Statement" isNode="true"
+        statementType="select" tableName="" storedProcedure="">
+          <DBFields key="3" name="Fields" isNode="true"
+          type="result_set">
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="5" name="CartId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="6" name="IsAvailableInStock"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="7" name="ProductId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="8" name="Quantity"
+            isNode="true" isMappable="true" dataType="number">
+              <DataFormat>
+                <ProfileNumberFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="9" name="WarehouseId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="10" name="createdAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="11" name="updatedAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+          </DBFields>
+          <DBParameters key="4" name="Parameters" isNode="true">
+            <DBParameter key="12" name="updatedAtGreaterThan"
+            isNode="true" isMappable="false">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBParameter>
+          </DBParameters>
+          <sql>SELECT CartId, IsAvailableInStock, ProductId,
+          Quantity, WarehouseId, createdAt, updatedAt FROM
+          cartproducts where
+          TIMESTAMPDIFF(MINUTE,updatedAt,UTC_TIMESTAMP()) &gt;
+          ?</sql>
+        </DBStatement>
+      </DataElements>
+    </DatabaseProfile>
+  </Object>
+</Component>

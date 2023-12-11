@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>d6d426e0-8297-4feb-8f00-a526e1f78d96</Id>
+  <Type>documentcache</Type>
+  <Name>CartProduct</Name>
+  <Version>5</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    refId="docCacheProfile" name="CartProducts Json" />
+  </References>
+  <Description />
+  <Object>
+    <DocumentCache profileType="profile.json"
+    profile="9ff8b8bc-4b8f-462e-8e7e-a482c79093fe"
+    enforceSingleLucene="true">
+      <CacheIndex indexId="1" indexName="RetriveId">
+        <cacheKey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:type="ProfileElementKeyConfig" elementKey="7"
+        taglistKey="0"
+        name="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+        id="2"
+        alias="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)" />
+        <cacheKey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:type="ProfileElementKeyConfig" elementKey="5"
+        taglistKey="0"
+        name="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+        id="4"
+        alias="ProductId (Root/Array/ArrayElement1/Object/ProductId)" />
+        <cacheKey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:type="ProfileElementKeyConfig" elementKey="6"
+        taglistKey="0"
+        name="CartId (Root/Array/ArrayElement1/Object/CartId)"
+        id="7"
+        alias="CartId (Root/Array/ArrayElement1/Object/CartId)" />
+      </CacheIndex>
+    </DocumentCache>
+  </Object>
+</Component>

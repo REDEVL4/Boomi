@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>8ca4a40a-9d91-4dc0-8489-8079aff4056c</Id>
+  <Type>transform.map</Type>
+  <Name>WarehouseProductsResponse DB &gt; WarehouseProducts
+  Json</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="a1b62501-9386-43bc-b3e1-ff228f2c9de8"
+    refId="fromProfile" name="WarehouseProductsResponse DB" />
+    <Ref compId="e43dd70f-75fa-4a9b-a483-d8cdac1faf62"
+    refId="toProfile" name="warehouseProduct Json" />
+  </References>
+  <Description />
+  <Object>
+    <Map fromProfile="a1b62501-9386-43bc-b3e1-ff228f2c9de8"
+    toProfile="e43dd70f-75fa-4a9b-a483-d8cdac1faf62">
+      <Mappings>
+        <Mapping fromType="profile" fromKey="6"
+        fromKeyPath="*[@key='2']/*[@key='3']/*[@key='6']"
+        fromNamePath="Statement/Fields/ProductId" toType="profile"
+        toKey="10"
+        toKeyPath="*[@key='1']/*[@key='2']/*[@key='3']/*[@key='4']/*[@key='10']"
+        toNamePath="Root/Array/ArrayElement1/Object/ProductId" />
+        <Mapping fromType="profile" fromKey="10"
+        fromKeyPath="*[@key='2']/*[@key='3']/*[@key='10']"
+        fromNamePath="Statement/Fields/WarehouseId"
+        toType="profile" toKey="7"
+        toKeyPath="*[@key='1']/*[@key='2']/*[@key='3']/*[@key='4']/*[@key='7']"
+        toNamePath="Root/Array/ArrayElement1/Object/WarehouseId" />
+        <Mapping fromType="profile" fromKey="12"
+        fromKeyPath="*[@key='2']/*[@key='3']/*[@key='12']"
+        fromNamePath="Statement/Fields/Quantity" toType="profile"
+        toKey="11"
+        toKeyPath="*[@key='1']/*[@key='2']/*[@key='3']/*[@key='4']/*[@key='11']"
+        toNamePath="Root/Array/ArrayElement1/Object/Quantity" />
+        <Mapping fromType="profile" fromKey="13"
+        fromKeyPath="*[@key='2']/*[@key='3']/*[@key='13']"
+        fromNamePath="Statement/Fields/createdAt" toType="profile"
+        toKey="8"
+        toKeyPath="*[@key='1']/*[@key='2']/*[@key='3']/*[@key='4']/*[@key='8']"
+        toNamePath="Root/Array/ArrayElement1/Object/createdAt" />
+        <Mapping fromType="profile" fromKey="14"
+        fromKeyPath="*[@key='2']/*[@key='3']/*[@key='14']"
+        fromNamePath="Statement/Fields/updatedAt" toType="profile"
+        toKey="9"
+        toKeyPath="*[@key='1']/*[@key='2']/*[@key='3']/*[@key='4']/*[@key='9']"
+        toNamePath="Root/Array/ArrayElement1/Object/updatedAt" />
+      </Mappings>
+      <Functions optimizeExecutionOrder="true" />
+      <Defaults />
+      <DocumentCacheJoins />
+    </Map>
+  </Object>
+</Component>

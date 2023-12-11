@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>dbfb38cc-41f5-4cfc-9f59-40da5421f2c3</Id>
+  <Type>connector-action</Type>
+  <Name>LocalSQL CartProducts Update</Name>
+  <Version>4</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Send</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>
+      EMBEDDED|databaseparameterchooser|900c8cc4-25c3-41d1-925d-fd25157e44a9</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="900c8cc4-25c3-41d1-925d-fd25157e44a9"
+    refId="db-profile" name="CartProduct_Update_request DB" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <DatabaseSendAction batchCount="0"
+        commitOption="commitprofile" enableBatching="true">
+          <WriteProfile profileId="900c8cc4-25c3-41d1-925d-fd25157e44a9" />
+        </DatabaseSendAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

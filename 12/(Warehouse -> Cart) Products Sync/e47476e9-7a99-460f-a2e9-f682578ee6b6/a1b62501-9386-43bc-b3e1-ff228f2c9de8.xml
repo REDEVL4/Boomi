@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>a1b62501-9386-43bc-b3e1-ff228f2c9de8</Id>
+  <Type>profile.db</Type>
+  <Name>WarehouseProductsResponse DB</Name>
+  <Version>10</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>dbsubtype</Name>
+      <Value>dbread</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseProfile strict="true" version="2">
+      <ProfileProperties>
+        <DatabaseGeneralInfo executionType="dbread" />
+      </ProfileProperties>
+      <DataElements>
+        <DBStatement key="2" name="Statement" isNode="true"
+        statementType="select" tableName="" storedProcedure="">
+          <DBFields key="3" name="Fields" isNode="true"
+          type="result_set">
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="6" name="ProductId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="12" name="Quantity"
+            isNode="true" isMappable="true" dataType="number">
+              <DataFormat>
+                <ProfileNumberFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="10" name="WarehouseId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="13" name="createdAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="14" name="updatedAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+          </DBFields>
+          <DBParameters key="4" name="Parameters" isNode="true">
+            <DBParameter key="15" name="WarehouseId" isNode="true"
+            isMappable="false">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBParameter>
+            <DBParameter key="16" name="ProductId" isNode="true"
+            isMappable="false">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBParameter>
+          </DBParameters>
+          <sql>SELECT ProductId, Quantity, WarehouseId, createdAt,
+          updatedAt FROM warehouseproducts where WarehouseId =? AND
+          ProductId =?</sql>
+        </DBStatement>
+      </DataElements>
+    </DatabaseProfile>
+  </Object>
+</Component>
