@@ -1,0 +1,714 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>c56a2227-81b5-4289-b0be-5eb1de070a39</Id>
+  <Type>process</Type>
+  <Name>(Seller -&gt; Warehouse) Products Sync</Name>
+  <Version>30</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>overrides-enabled</Name>
+      <Value>false</Value>
+    </Property>
+    <Property>
+      <Name>startshape-action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>startshape-type</Name>
+      <Value>CONNECTOR</Value>
+    </Property>
+    <Property>
+      <Name>startshape-connector-type</Name>
+      <Value>database</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape1.connection" name="mysql_local_conn" />
+    <Ref compId="785b513d-827c-42ce-9d30-976e7ebcd51d"
+    refId="shape1.operation" name="mysql_local_get_operation" />
+    <Ref compId="afaa6229-e0ab-4f56-8d22-35df76ad05a5"
+    refId="shape2"
+    name="WarehouseSellers DB &gt; WarehouseSellers Json" />
+    <Ref compId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+    refId="shape5-step1-profile" name="WarehouseSellers Json" />
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape8.connection" name="mysql_local_conn" />
+    <Ref compId="d8cbdf18-4571-447f-8a9d-f895fd16d5eb"
+    refId="shape8.operation"
+    name="LocalMySQL SellerProducts GET" />
+    <Ref compId="63605e45-9811-4edd-a999-5b696d86a26e"
+    refId="shape9"
+    name="SellerProducts DB &gt; SellerProducts Json" />
+    <Ref compId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+    refId="shape10-step1-profile" name="SellerProducts Json" />
+    <Ref compId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+    refId="shape13-parameter-1-profile"
+    name="WarehouseSellers Json" />
+    <Ref compId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+    refId="shape13-parameter-2-profile"
+    name="WarehouseSellers Json" />
+    <Ref compId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+    refId="shape15-parameter-1-profile"
+    name="SellerProducts Json" />
+    <Ref compId="644fab3e-d0ca-4fb2-89dc-89f43fbb23ba"
+    refId="shape11.connection" name="localMySQL DBv2" />
+    <Ref compId="cc58f85f-c432-49aa-83e7-c9b5131049d7"
+    refId="shape11.operation"
+    name="localMySQL DBv2 CheckWarehouseProduct Execxute" />
+    <Ref compId="ff1f342b-579c-45c2-8bbd-77b4e3ffb8b1"
+    refId="shape17"
+    name="test &gt; CheckWarehouseProduct Request" />
+    <Ref compId="246a0395-84e3-47d9-9351-1249b76949ec"
+    refId="shape20-0-profile"
+    name="Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE Response" />
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape21.connection" name="mysql_local_conn" />
+    <Ref compId="931a089a-9b03-4fba-951f-b5ccb02b11c2"
+    refId="shape21.operation" name="warehouseProducts Update" />
+    <Ref compId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+    refId="shape24.connection" name="mysql_local_conn" />
+    <Ref compId="edf93cfc-5250-4e3d-9fe4-fa912e641e11"
+    refId="shape24.operation" name="warehouseProducts Insert" />
+    <Ref compId="86947eb1-a264-43f9-b47d-850fe86ac7ec"
+    refId="shape22-parameter-0-profile"
+    name="warehouseProducts_Update_Request DB" />
+    <Ref compId="86947eb1-a264-43f9-b47d-850fe86ac7ec"
+    refId="shape22-parameter-1-profile"
+    name="warehouseProducts_Update_Request DB" />
+    <Ref compId="4bd62543-8768-4497-9f5b-150325485641"
+    refId="shape25-parameter-0-profile"
+    name="warehouseProducts_Insert_Request DB" />
+    <Ref compId="4bd62543-8768-4497-9f5b-150325485641"
+    refId="shape25-parameter-1-profile"
+    name="warehouseProducts_Insert_Request DB" />
+    <Ref compId="f5054796-6e8d-40de-8a04-36ddebb6adce"
+    refId="shape11-parameter-0-profile"
+    name="Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE Request" />
+    <Ref compId="f5054796-6e8d-40de-8a04-36ddebb6adce"
+    refId="shape11-parameter-1-profile"
+    name="Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE Request" />
+    <Ref compId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+    refId="shape8-parameter-0-profile"
+    name="WarehouseSellers Json" />
+    <Ref compId="81476e60-f083-4db2-b47d-22a28447a607"
+    refId="shape35"
+    name="test Json &gt; warehouseProducts_Update_Request DB" />
+    <Ref compId="ece6bd57-346c-43ca-8370-4557c3c3e35a"
+    refId="shape34"
+    name="test Json &gt; warehouseProducts_Insert_Request DB" />
+    <Ref compId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+    refId="shape15-parameter-2-profile"
+    name="SellerProducts Json" />
+  </References>
+  <Description />
+  <Object>
+    <process allowSimultaneous="false" enableUserLog="false"
+    updateRunDates="true" processLogOnErrorOnly="false"
+    workload="general" purgeDataImmediately="false">
+      <shapes>
+        <shape name="shape1" userlabel="" image="start" x="48.0"
+        y="46.0" shapetype="start">
+          <configuration>
+            <connectoraction operationId="785b513d-827c-42ce-9d30-976e7ebcd51d"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Get" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|f9ac56cc-d1e1-4f1f-8072-a7897bc4aad2|785b513d-827c-42ce-9d30-976e7ebcd51d"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters>
+                <parametervalue name="updatedGreaterThan"
+                valueType="static" elementToSetId="13"
+                elementToSetName="updatedGreaterThan">
+                  <staticparameter staticproperty="1" />
+                </parametervalue>
+              </parameters>
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape1.dragpoint1" toShape="shape7"
+            x="224.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape2" userlabel="" image="map_icon"
+        x="432.0" y="48.0" shapetype="map">
+          <configuration>
+            <map mapId="afaa6229-e0ab-4f56-8d22-35df76ad05a5" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape2.dragpoint1" toShape="shape5"
+            x="608.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape5" userlabel="" image="dataprocess_icon"
+        x="624.0" y="48.0" shapetype="dataprocess">
+          <configuration>
+            <dataprocess>
+              <step name="Split Documents" processtype="8"
+              index="1" key="1">
+                <documentsplit profileType="json">
+                  <SplitOptions>
+                    <JSONOptions profileId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+                    linkElementKey="4"
+                    linkElementName="Object (Root/Array/ArrayElement1/Object)" />
+                  </SplitOptions>
+                </documentsplit>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape5.dragpoint1" toShape="shape6"
+            x="800.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape6" image="flowcontrol_icon" x="816.0"
+        y="48.0" shapetype="flowcontrol">
+          <configuration>
+            <flowcontrol chunkStyle="threadOnly" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape6.dragpoint1" toShape="shape13"
+            x="992.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape7" image="catcherrors_icon" x="240.0"
+        y="48.0" shapetype="catcherrors">
+          <configuration>
+            <catcherrors retryCount="0" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape7.dragpoint1" toShape="shape2"
+            identifier="default" text="Try" x="416.0" y="56.0" />
+            <dragpoint name="shape7.dragpoint2" toShape="shape37"
+            identifier="error" text="Catch" x="416.0" y="1016.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape8" userlabel=""
+        image="connectoraction_icon" x="1392.0" y="48.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="d8cbdf18-4571-447f-8a9d-f895fd16d5eb"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Get" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|8de0ba6a-c0ee-48b5-b1e5-cec765a9e3a8|d8cbdf18-4571-447f-8a9d-f895fd16d5eb"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters>
+                <parametervalue valueType="profile" key="0"
+                elementToSetId="12" elementToSetName="SellerId">
+                  <profileelement elementId="6"
+                  elementName="SellerId (Root/Array/ArrayElement1/Object/SellerId)"
+                  profileId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+                  profileType="profile.json" />
+                </parametervalue>
+              </parameters>
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape8.dragpoint1" toShape="shape9"
+            x="1568.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape9" userlabel="" image="map_icon"
+        x="1584.0" y="48.0" shapetype="map">
+          <configuration>
+            <map mapId="63605e45-9811-4edd-a999-5b696d86a26e" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape9.dragpoint1" toShape="shape10"
+            x="1760.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape10" userlabel="" image="dataprocess_icon"
+        x="1776.0" y="48.0" shapetype="dataprocess">
+          <configuration>
+            <dataprocess>
+              <step name="Split Documents" processtype="8"
+              index="1" key="1">
+                <documentsplit profileType="json">
+                  <SplitOptions>
+                    <JSONOptions profileId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+                    linkElementKey="4"
+                    linkElementName="Object (Root/Array/ArrayElement1/Object)" />
+                  </SplitOptions>
+                </documentsplit>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape10.dragpoint1" toShape="shape12"
+            x="1952.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape11" userlabel=""
+        image="connectoraction_icon" x="2928.0" y="48.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="cc58f85f-c432-49aa-83e7-c9b5131049d7"
+            connectionId="644fab3e-d0ca-4fb2-89dc-89f43fbb23ba"
+            actionType="STOREDPROCEDURE"
+            connectorType="officialboomi-X3979C-dbv2da-prod"
+            parameter-profile="f5054796-6e8d-40de-8a04-36ddebb6adce"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters>
+                <parametervalue valueType="profile" key="0"
+                elementToSetId="3"
+                elementToSetName="productId (Object/productId)">
+                  <profileelement elementId="3"
+                  elementName="productId (Object/productId)"
+                  profileId="f5054796-6e8d-40de-8a04-36ddebb6adce"
+                  profileType="profile.json" />
+                </parametervalue>
+                <parametervalue valueType="profile" key="1"
+                elementToSetId="4"
+                elementToSetName="warehouseId (Object/warehouseId)">
+
+                  <profileelement elementId="4"
+                  elementName="warehouseId (Object/warehouseId)"
+                  profileId="f5054796-6e8d-40de-8a04-36ddebb6adce"
+                  profileType="profile.json" />
+                </parametervalue>
+              </parameters>
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape11.dragpoint1" toShape="shape20"
+            x="3104.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape12" image="flowcontrol_icon" x="1968.0"
+        y="48.0" shapetype="flowcontrol">
+          <configuration>
+            <flowcontrol chunkStyle="threadOnly" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape12.dragpoint1" toShape="shape15"
+            x="2144.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape13" userlabel=""
+        image="documentproperties_icon" x="1008.0" y="48.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Document Property - SellerId"
+              propertyId="dynamicdocument.SellerId" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="1">
+                    <profileelement elementId="6"
+                    elementName="SellerId (Root/Array/ArrayElement1/Object/SellerId)"
+                    profileId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Document Property - WarehouseId"
+              propertyId="dynamicdocument.WarehouseId"
+              defaultValue="" isTradingPartner="false"
+              isDynamicCredential="false" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="2">
+                    <profileelement elementId="7"
+                    elementName="WarehouseId (Root/Array/ArrayElement1/Object/WarehouseId)"
+                    profileId="99f4c26b-58f8-4565-bf6e-0d70991b34f0"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape13.dragpoint1" toShape="shape14"
+            x="1184.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape14" image="catcherrors_icon" x="1200.0"
+        y="48.0" shapetype="catcherrors">
+          <configuration>
+            <catcherrors retryCount="0" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape14.dragpoint1" toShape="shape8"
+            identifier="default" text="Try" x="1376.0" y="56.0" />
+            <dragpoint name="shape14.dragpoint2" toShape="shape27"
+            identifier="error" text="Catch" x="1376.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape15" userlabel=""
+        image="documentproperties_icon" x="2160.0" y="48.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Document Property - ProductId"
+              propertyId="dynamicdocument.ProductId"
+              defaultValue="" isTradingPartner="false"
+              isDynamicCredential="false" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="1">
+                    <profileelement elementId="8"
+                    elementName="ProductId (Root/Array/ArrayElement1/Object/ProductId)"
+                    profileId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Document Property - Quantity"
+              propertyId="dynamicdocument.Quantity" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="profile" key="2">
+                    <profileelement elementId="6"
+                    elementName="Quantity (Root/Array/ArrayElement1/Object/Quantity)"
+                    profileId="c9b54f8f-a305-4ac3-aaa6-b5311d43306a"
+                    profileType="profile.json" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape15.dragpoint1" toShape="shape16"
+            x="2336.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape16" image="catcherrors_icon" x="2352.0"
+        y="48.0" shapetype="catcherrors">
+          <configuration>
+            <catcherrors retryCount="0" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape16.dragpoint1" toShape="shape19"
+            identifier="default" text="Try" x="2528.0" y="56.0" />
+            <dragpoint name="shape16.dragpoint2" toShape="shape29"
+            identifier="error" text="Catch" x="2528.0" y="696.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape17" userlabel="" image="map_icon"
+        x="2736.0" y="48.0" shapetype="map">
+          <configuration>
+            <map mapId="ff1f342b-579c-45c2-8bbd-77b4e3ffb8b1" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape17.dragpoint1" toShape="shape11"
+            x="2912.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape19" userlabel="" image="message_icon"
+        x="2544.0" y="48.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>'{"test":""}'</msgTxt>
+              <msgParameters />
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape19.dragpoint1" toShape="shape17"
+            x="2720.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape20" userlabel="" image="decision_icon"
+        x="3120.0" y="48.0" shapetype="decision">
+          <configuration>
+            <decision name="" comparison="equals">
+              <decisionvalue valueType="profile">
+                <profileelement elementId="3"
+                elementName="result (Object/result)"
+                profileId="246a0395-84e3-47d9-9351-1249b76949ec"
+                profileType="profile.json" />
+              </decisionvalue>
+              <decisionvalue valueType="static">
+                <staticparameter staticproperty="1" />
+              </decisionvalue>
+            </decision>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape20.dragpoint1" toShape="shape33"
+            identifier="true" text="True" x="3296.0" y="56.0" />
+            <dragpoint name="shape20.dragpoint2" toShape="shape32"
+            identifier="false" text="False" x="3296.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape21" userlabel=""
+        image="connectoraction_icon" x="3888.0" y="48.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="931a089a-9b03-4fba-951f-b5ccb02b11c2"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Send" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|86947eb1-a264-43f9-b47d-850fe86ac7ec|931a089a-9b03-4fba-951f-b5ccb02b11c2"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters />
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape21.dragpoint1" toShape="shape42"
+            x="4064.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape22" userlabel="" image="notify_icon"
+        x="3888.0" y="208.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>'Product:{1} is updated with
+              Quantity:{2}'</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="profile" key="0">
+                  <profileelement elementId="9"
+                  elementName="ProductId (Statement/Conditions/ProductId)"
+                  profileId="86947eb1-a264-43f9-b47d-850fe86ac7ec"
+                  profileType="profile.db" />
+                </parametervalue>
+                <parametervalue valueType="profile" key="1">
+                  <profileelement elementId="5"
+                  elementName="Quantity (Statement/Fields/Quantity)"
+                  profileId="86947eb1-a264-43f9-b47d-850fe86ac7ec"
+                  profileType="profile.db" />
+                </parametervalue>
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape22.dragpoint1" toShape="shape23"
+            x="4064.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape23" image="stop_icon" x="4080.0"
+        y="208.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape24" userlabel=""
+        image="connectoraction_icon" x="3888.0" y="368.0"
+        shapetype="connectoraction">
+          <configuration>
+            <connectoraction operationId="edf93cfc-5250-4e3d-9fe4-fa912e641e11"
+            connectionId="a4cef808-90c1-4e44-ba44-1ea477ca11a7"
+            actionType="Send" connectorType="database"
+            parameter-profile="EMBEDDED|databaseparameterchooser|4bd62543-8768-4497-9f5b-150325485641|edf93cfc-5250-4e3d-9fe4-fa912e641e11"
+            hideSettings="false" allowDynamicCredentials="NONE">
+              <parameters />
+              <dynamicProperties />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape24.dragpoint1" toShape="shape39"
+            x="4064.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape25" userlabel="" image="notify_icon"
+        x="3888.0" y="528.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>'Product:{1} is inserted with
+              Quantity:{2}'</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="profile" key="0">
+                  <profileelement elementId="4"
+                  elementName="ProductId (Statement/Fields/ProductId)"
+                  profileId="4bd62543-8768-4497-9f5b-150325485641"
+                  profileType="profile.db" />
+                </parametervalue>
+                <parametervalue valueType="profile" key="1">
+                  <profileelement elementId="5"
+                  elementName="Quantity (Statement/Fields/Quantity)"
+                  profileId="4bd62543-8768-4497-9f5b-150325485641"
+                  profileType="profile.db" />
+                </parametervalue>
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape25.dragpoint1" toShape="shape26"
+            x="4064.0" y="536.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape26" image="stop_icon" x="4080.0"
+        y="528.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape27" userlabel="" image="notify_icon"
+        x="1392.0" y="848.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>{1}</notifyMessage>
+              <notifyMessageLevel>ERROR</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="current" key="0" />
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape27.dragpoint1" toShape="shape28"
+            x="1568.0" y="856.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape28" image="stop_icon" x="1584.0"
+        y="848.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape29" userlabel="" image="notify_icon"
+        x="2544.0" y="688.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>{1}</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="current" key="0" />
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape29.dragpoint1" toShape="shape30"
+            x="2720.0" y="696.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape30" image="stop_icon" x="2736.0"
+        y="688.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape32" userlabel="" image="message_icon"
+        x="3312.0" y="368.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>'{"test":""}'</msgTxt>
+              <msgParameters />
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape32.dragpoint1" toShape="shape34"
+            x="3488.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape33" userlabel="" image="message_icon"
+        x="3312.0" y="48.0" shapetype="message">
+          <configuration>
+            <message combined="false">
+              <msgTxt>'{"test":""}'</msgTxt>
+              <msgParameters />
+            </message>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape33.dragpoint1" toShape="shape35"
+            x="3488.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape34" userlabel="" image="map_icon"
+        x="3504.0" y="368.0" shapetype="map">
+          <configuration>
+            <map mapId="ece6bd57-346c-43ca-8370-4557c3c3e35a" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape34.dragpoint1" toShape="shape40"
+            x="3680.0" y="376.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape35" userlabel="" image="map_icon"
+        x="3504.0" y="48.0" shapetype="map">
+          <configuration>
+            <map mapId="81476e60-f083-4db2-b47d-22a28447a607" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape35.dragpoint1" toShape="shape41"
+            x="3680.0" y="56.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape37" userlabel="" image="notify_icon"
+        x="432.0" y="1008.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>{1}</notifyMessage>
+              <notifyMessageLevel>ERROR</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="current" key="0" />
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape37.dragpoint1" toShape="shape36"
+            x="608.0" y="1016.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape36" image="stop_icon" x="624.0"
+        y="1008.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape39" image="stop_icon" x="4080.0"
+        y="368.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape name="shape40" image="branch_icon" x="3696.0"
+        y="368.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape40.dragpoint1" toShape="shape24"
+            identifier="1" text="1" x="3872.0" y="376.0" />
+            <dragpoint name="shape40.dragpoint2" toShape="shape25"
+            identifier="2" text="2" x="3872.0" y="536.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape41" image="branch_icon" x="3696.0"
+        y="48.0" shapetype="branch">
+          <configuration>
+            <branch numBranches="2" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape41.dragpoint1" toShape="shape21"
+            identifier="1" text="1" x="3872.0" y="56.0" />
+            <dragpoint name="shape41.dragpoint2" toShape="shape22"
+            identifier="2" text="2" x="3872.0" y="216.0" />
+          </dragpoints>
+        </shape>
+        <shape name="shape42" image="stop_icon" x="4080.0" y="48.0"
+        shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+      </shapes>
+    </process>
+  </Object>
+</Component>

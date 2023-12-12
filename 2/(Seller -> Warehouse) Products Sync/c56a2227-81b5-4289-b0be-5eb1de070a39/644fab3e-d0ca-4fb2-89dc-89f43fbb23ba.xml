@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>644fab3e-d0ca-4fb2-89dc-89f43fbb23ba</Id>
+  <Type>connector-settings</Type>
+  <Name>localMySQL DBv2</Name>
+  <Version>3</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>officialboomi-X3979C-dbv2da-prod</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <GenericConnectionConfig>
+      <field id="url" value="jdbc:mysql://localhost:3306/mysql"
+      type="string" />
+      <field id="className" value="com.mysql.jdbc.Driver"
+      type="string" />
+      <field id="username" value="root" type="string" />
+      <field id="password"
+      value="WPaFTOuvV6QWZ9V1YYRMxtahEO8muFgQIgqpsQWHAqZOvQWjUFiB8MeXgTy8ocKGaw4F1tHsUd1RH9pzs+R4KpeQN6oJn0hHgdIeurjkPX8IVKiVcVv213eZu/qQ3k5Eb71LF0EZg8dUZYyJFMcpcb7qhLYI49ADmSwIDKRnZrw="
+      type="password" />
+      <field id="schemaName" value="testdb" type="string" />
+      <field id="connectTimeOut" type="integer" />
+      <field id="readTimeOut" type="integer" />
+      <field id="enablePooling" value="false" type="boolean" />
+      <field id="maximumConnections" value="" type="integer" />
+      <field id="minimumConnections" value="" type="integer" />
+      <field id="maximumIdleTime" value="" type="integer" />
+      <field id="whenExhaustedAction" value="" type="string" />
+      <field id="maximumWaitTime" value="" type="integer" />
+      <field id="testOnBorrow" value="" type="boolean" />
+      <field id="testOnReturn" value="" type="boolean" />
+      <field id="testWhileIdle" value="" type="boolean" />
+      <field id="validationQuery" value="" type="string" />
+      <field id="CustomProperties" type="customproperties">
+        <customProperties />
+      </field>
+    </GenericConnectionConfig>
+  </Object>
+</Component>
