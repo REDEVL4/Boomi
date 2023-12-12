@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>99f4c26b-58f8-4565-bf6e-0d70991b34f0</Id>
+  <Type>profile.json</Type>
+  <Name>WarehouseSellers Json</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <JSONProfile strict="false">
+      <DataElements>
+        <JSONRootValue key="1" name="Root" isNode="true"
+        isMappable="true" dataType="character">
+          <DataFormat>
+            <ProfileCharacterFormat />
+          </DataFormat>
+          <JSONArray key="2" name="Array" isNode="true"
+          isMappable="false" elementType="repeating">
+            <JSONArrayElement minOccurs="0" maxOccurs="-1" key="3"
+            name="ArrayElement1" isNode="true" isMappable="true"
+            dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+              <JSONObject key="4" name="Object" isNode="true"
+              isMappable="false">
+                <JSONObjectEntry key="5" name="Id" isNode="true"
+                isMappable="true" dataType="character">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </JSONObjectEntry>
+                <JSONObjectEntry key="6" name="SellerId"
+                isNode="true" isMappable="true"
+                dataType="character">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </JSONObjectEntry>
+                <JSONObjectEntry key="7" name="WarehouseId"
+                isNode="true" isMappable="true"
+                dataType="character">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </JSONObjectEntry>
+                <JSONObjectEntry key="8" name="createdAt"
+                isNode="true" isMappable="true"
+                dataType="character">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </JSONObjectEntry>
+                <JSONObjectEntry key="9" name="updatedAt"
+                isNode="true" isMappable="true"
+                dataType="character">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </JSONObjectEntry>
+              </JSONObject>
+              <Qualifiers>
+                <QualifierList />
+              </Qualifiers>
+            </JSONArrayElement>
+          </JSONArray>
+          <Qualifiers>
+            <QualifierList />
+          </Qualifiers>
+        </JSONRootValue>
+      </DataElements>
+      <tagLists />
+    </JSONProfile>
+  </Object>
+</Component>

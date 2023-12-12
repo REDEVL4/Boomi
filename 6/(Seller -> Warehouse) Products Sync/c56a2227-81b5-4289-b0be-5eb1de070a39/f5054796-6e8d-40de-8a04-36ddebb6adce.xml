@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/">
+  <Id>f5054796-6e8d-40de-8a04-36ddebb6adce</Id>
+  <Type>profile.json</Type>
+  <Name>Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE
+  Request</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Object>
+    <JSONProfile strict="false">
+      <GeneratorConfig enableFieldLengthValidation="true"
+      enableParseDateTime="true" />
+      <DataElements>
+        <JSONRootValue dataType="character" isMappable="true"
+        isNode="true" key="1" name="">
+          <DataFormat>
+            <ProfileCharacterFormat />
+          </DataFormat>
+          <JSONObject isMappable="false" isNode="true" key="2"
+          name="Object">
+            <JSONObjectEntry dataType="character" isMappable="true"
+            isNode="true" key="3" name="productId">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </JSONObjectEntry>
+            <JSONObjectEntry dataType="character" isMappable="true"
+            isNode="true" key="4" name="warehouseId">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </JSONObjectEntry>
+          </JSONObject>
+        </JSONRootValue>
+      </DataElements>
+      <tagLists />
+    </JSONProfile>
+  </Object>
+</Component>

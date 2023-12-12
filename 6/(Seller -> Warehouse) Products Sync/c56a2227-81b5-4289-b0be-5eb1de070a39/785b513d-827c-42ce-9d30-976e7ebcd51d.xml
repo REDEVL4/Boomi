@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>785b513d-827c-42ce-9d30-976e7ebcd51d</Id>
+  <Type>connector-action</Type>
+  <Name>mysql_local_get_operation</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/Process Library/Boomi Training">
+  6311817</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>
+      EMBEDDED|databaseparameterchooser|f9ac56cc-d1e1-4f1f-8072-a7897bc4aad2</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="f9ac56cc-d1e1-4f1f-8072-a7897bc4aad2"
+    refId="db-profile" name="WarehouseSellers DB" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <DatabaseGetAction batchCount="0" maxRows="0">
+          <ReadProfile profileId="f9ac56cc-d1e1-4f1f-8072-a7897bc4aad2" />
+        </DatabaseGetAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

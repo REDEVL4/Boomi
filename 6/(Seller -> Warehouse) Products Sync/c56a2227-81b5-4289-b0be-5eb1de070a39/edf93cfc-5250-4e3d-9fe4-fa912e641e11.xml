@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>edf93cfc-5250-4e3d-9fe4-fa912e641e11</Id>
+  <Type>connector-action</Type>
+  <Name>warehouseProducts Insert</Name>
+  <Version>1</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Send</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>
+      EMBEDDED|databaseparameterchooser|4bd62543-8768-4497-9f5b-150325485641</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="4bd62543-8768-4497-9f5b-150325485641"
+    refId="db-profile"
+    name="warehouseProducts_Insert_Request DB" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <DatabaseSendAction batchCount="0"
+        commitOption="commitprofile" enableBatching="true">
+          <WriteProfile profileId="4bd62543-8768-4497-9f5b-150325485641" />
+        </DatabaseSendAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

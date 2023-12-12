@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>8de0ba6a-c0ee-48b5-b1e5-cec765a9e3a8</Id>
+  <Type>profile.db</Type>
+  <Name>SellerProducts DB</Name>
+  <Version>2</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>dbsubtype</Name>
+      <Value>dbread</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseProfile strict="true" version="2">
+      <ProfileProperties>
+        <DatabaseGeneralInfo executionType="dbread" />
+      </ProfileProperties>
+      <DataElements>
+        <DBStatement key="2" name="Statement" isNode="true"
+        statementType="select" tableName="" storedProcedure="">
+          <DBFields key="3" name="Fields" isNode="true"
+          type="result_set">
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="5" name="Id" isNode="true"
+            isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="6" name="IsWithSeller"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="7" name="ProductId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="8" name="Quantity"
+            isNode="true" isMappable="true" dataType="number">
+              <DataFormat>
+                <ProfileNumberFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="9" name="SellerId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="10" name="createdAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="11" name="updatedAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+          </DBFields>
+          <DBParameters key="4" name="Parameters" isNode="true">
+            <DBParameter key="12" name="SellerId" isNode="true"
+            isMappable="false">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBParameter>
+          </DBParameters>
+          <sql>SELECT Id, IsWithSeller, ProductId, Quantity,
+          SellerId, createdAt, updatedAt FROM sellerproducts where
+          SellerId=?</sql>
+        </DBStatement>
+      </DataElements>
+    </DatabaseProfile>
+  </Object>
+</Component>
