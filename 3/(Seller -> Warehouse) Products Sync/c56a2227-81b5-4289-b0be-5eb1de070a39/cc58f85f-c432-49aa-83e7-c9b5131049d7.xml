@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>cc58f85f-c432-49aa-83e7-c9b5131049d7</Id>
+  <Type>connector-action</Type>
+  <Name>localMySQL DBv2 CheckWarehouseProduct Execxute</Name>
+  <Version>2</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>officialboomi-X3979C-dbv2da-prod</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>EXECUTE</Value>
+    </Property>
+    <Property>
+      <Name>custom-action-type</Name>
+      <Value>STOREDPROCEDUREWRITE</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>f5054796-6e8d-40de-8a04-36ddebb6adce</Value>
+    </Property>
+    <Property>
+      <Name>output-profile</Name>
+      <Value>246a0395-84e3-47d9-9351-1249b76949ec</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="246a0395-84e3-47d9-9351-1249b76949ec"
+    refId="response-profile"
+    name="Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE Response" />
+    <Ref compId="f5054796-6e8d-40de-8a04-36ddebb6adce"
+    refId="request-profile"
+    name="Database V2 CheckWarehouseProduct STOREDPROCEDUREWRITE Request" />
+  </References>
+  <Description />
+  <Object>
+    <Operation trackResponse="false"
+    returnApplicationErrors="false">
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <GenericOperationConfig operationType="EXECUTE"
+        customOperationType="STOREDPROCEDUREWRITE"
+        objectTypeId="CheckWarehouseProduct"
+        requestProfile="f5054796-6e8d-40de-8a04-36ddebb6adce"
+        responseProfile="246a0395-84e3-47d9-9351-1249b76949ec"
+        requestProfileType="json" responseProfileType="json">
+          <field id="batchCount" type="integer" />
+          <field id="maxFieldSize" type="integer" />
+          <field id="schemaName" value="" type="string" />
+          <field id="fetchSize" type="integer" />
+          <Options>
+            <QueryOptions>
+              <Fields>
+                <ConnectorObject name="CheckWarehouseProduct">
+                  <FieldList>
+                    <ConnectorField name="result" selected="true"
+                    filterable="true" sortable="true"
+                    selectable="true" />
+                  </FieldList>
+                </ConnectorObject>
+              </Fields>
+              <Inputs />
+            </QueryOptions>
+          </Options>
+        </GenericOperationConfig>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

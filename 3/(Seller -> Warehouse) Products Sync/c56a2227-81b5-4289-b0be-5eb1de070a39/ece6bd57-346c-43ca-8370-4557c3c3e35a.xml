@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>ece6bd57-346c-43ca-8370-4557c3c3e35a</Id>
+  <Type>transform.map</Type>
+  <Name>test Json &gt; warehouseProducts_Insert_Request DB</Name>
+  <Version>4</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="0bc5e53c-9342-4f01-9681-1a51b33a93aa"
+    refId="fromProfile" name="test Json" />
+    <Ref compId="4bd62543-8768-4497-9f5b-150325485641"
+    refId="toProfile" name="warehouseProducts_Insert_Request DB" />
+    <Ref compId="2af5c5f8-abaa-4cd5-8b50-3356f0cdd9e9"
+    refId="function-5" name="Get Current Date in" />
+  </References>
+  <Description />
+  <Object>
+    <Map fromProfile="0bc5e53c-9342-4f01-9681-1a51b33a93aa"
+    toProfile="4bd62543-8768-4497-9f5b-150325485641">
+      <Mappings>
+        <Mapping fromType="function" fromKey="3" fromFunction="1"
+        toType="profile" toKey="5"
+        toKeyPath="*[@key='2']/*[@key='3']/*[@key='5']"
+        toNamePath="Statement/Fields/Quantity" />
+        <Mapping fromType="function" fromKey="3" fromFunction="2"
+        toType="profile" toKey="4"
+        toKeyPath="*[@key='2']/*[@key='3']/*[@key='4']"
+        toNamePath="Statement/Fields/ProductId" />
+        <Mapping fromType="function" fromKey="3" fromFunction="3"
+        toType="profile" toKey="6"
+        toKeyPath="*[@key='2']/*[@key='3']/*[@key='6']"
+        toNamePath="Statement/Fields/WarehouseId" />
+        <Mapping fromType="function" fromKey="1" fromFunction="5"
+        toType="profile" toKey="7"
+        toKeyPath="*[@key='2']/*[@key='3']/*[@key='7']"
+        toNamePath="Statement/Fields/createdAt" />
+        <Mapping fromType="function" fromKey="1" fromFunction="5"
+        toType="profile" toKey="8"
+        toKeyPath="*[@key='2']/*[@key='3']/*[@key='8']"
+        toNamePath="Statement/Fields/updatedAt" />
+      </Mappings>
+      <Functions optimizeExecutionOrder="true">
+        <FunctionStep key="1" position="1"
+        name="Get Document Property" type="DocumentPropertyGet"
+        x="10.0" y="10.0" category="ProcessProperty"
+        sumEnabled="false" cacheEnabled="true">
+          <Inputs />
+          <Outputs>
+            <Output key="3"
+            name="Dynamic Document Property - Quantity" />
+          </Outputs>
+          <Configuration>
+            <DocumentProperty propertyId="dynamicdocument.Quantity"
+            propertyName="Dynamic Document Property - Quantity"
+            defaultValue="" persist="false" />
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep key="2" position="2"
+        name="Get Document Property" type="DocumentPropertyGet"
+        x="10.0" y="82.0" category="ProcessProperty"
+        sumEnabled="false" cacheEnabled="true">
+          <Inputs />
+          <Outputs>
+            <Output key="3"
+            name="Dynamic Document Property - ProductId" />
+          </Outputs>
+          <Configuration>
+            <DocumentProperty propertyId="dynamicdocument.ProductId"
+            propertyName="Dynamic Document Property - ProductId"
+            defaultValue="" persist="false" />
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep key="3" position="3"
+        name="Get Document Property" type="DocumentPropertyGet"
+        x="10.0" y="154.0" category="ProcessProperty"
+        sumEnabled="false" cacheEnabled="true">
+          <Inputs />
+          <Outputs>
+            <Output key="3"
+            name="Dynamic Document Property - WarehouseId" />
+          </Outputs>
+          <Configuration>
+            <DocumentProperty propertyId="dynamicdocument.WarehouseId"
+            propertyName="Dynamic Document Property - WarehouseId"
+            defaultValue="" persist="false" />
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep key="5" position="5"
+        id="2af5c5f8-abaa-4cd5-8b50-3356f0cdd9e9"
+        name="Get Current Date in" type="userdefined" x="30.0"
+        y="226.0" category="userdefined">
+          <Inputs />
+          <Outputs>
+            <Output key="1" name="output" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+      </Functions>
+      <Defaults />
+      <DocumentCacheJoins />
+    </Map>
+  </Object>
+</Component>

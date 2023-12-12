@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>2af5c5f8-abaa-4cd5-8b50-3356f0cdd9e9</Id>
+  <Type>transform.function</Type>
+  <Name>Get Current Date in</Name>
+  <Version>8</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <Function>
+      <Inputs />
+      <Outputs>
+        <Output key="1" name="output" />
+      </Outputs>
+      <Steps>
+        <FunctionStep key="1" position="1" name="Get Current Date"
+        type="CurrentDate" x="133.0" y="167.0" category="Date"
+        sumEnabled="false" cacheEnabled="true">
+          <Inputs />
+          <Outputs>
+            <Output key="2" name="Result" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+        <FunctionStep key="2" position="2" name="Date Format"
+        type="DateFormat" x="480.0" y="281.0" category="Date"
+        cacheOption="none" sumEnabled="false" cacheEnabled="true">
+          <Inputs>
+            <Input key="1" name="Date String" />
+            <Input key="2" name="Input Mask"
+            default="yyyyMMdd HHmmss.SSS" />
+            <Input key="3" name="Output Mask"
+            default="yyyyMMdd HHmmss.SSS" />
+          </Inputs>
+          <Outputs>
+            <Output key="2" name="Result" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+      </Steps>
+      <Mappings>
+        <Mapping fromType="function" fromKey="2"
+        fromNamePath="Get Current Date/Result" fromFunction="1"
+        toType="function" toKey="1"
+        toNamePath="Date Format/Date String" toFunction="2" />
+        <Mapping fromType="function" fromKey="2"
+        fromNamePath="Date Format/Result" fromFunction="2"
+        toType="function" toKey="1" toNamePath="Editor/output"
+        toFunction="0" />
+      </Mappings>
+    </Function>
+  </Object>
+</Component>
