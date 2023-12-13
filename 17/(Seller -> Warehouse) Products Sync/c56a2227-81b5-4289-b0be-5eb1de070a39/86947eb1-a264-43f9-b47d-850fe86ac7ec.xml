@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>86947eb1-a264-43f9-b47d-850fe86ac7ec</Id>
+  <Type>profile.db</Type>
+  <Name>warehouseProducts_Update_Request DB</Name>
+  <Version>2</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>dbsubtype</Name>
+      <Value>dbwrite</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseProfile strict="true" version="2">
+      <ProfileProperties>
+        <DatabaseGeneralInfo executionType="dbwrite" />
+      </ProfileProperties>
+      <DataElements>
+        <DBStatement key="2" name="Statement" isNode="true"
+        statementType="dynamicupdate" tableName="warehouseproducts"
+        storedProcedure="">
+          <DBFields key="3" name="Fields" isNode="true">
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="5" name="Quantity"
+            isNode="true" isMappable="true" dataType="number">
+              <DataFormat>
+                <ProfileNumberFormat />
+              </DataFormat>
+            </DatabaseElement>
+          </DBFields>
+          <DBConditions key="7" name="Conditions" isNode="true">
+            <DBCondition conditionOperator="equal" key="9"
+            name="ProductId" isNode="true" isMappable="true">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBCondition>
+            <DBCondition conditionOperator="equal" key="10"
+            name="WarehouseId" isNode="true" isMappable="true">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DBCondition>
+          </DBConditions>
+          <sql />
+        </DBStatement>
+      </DataElements>
+    </DatabaseProfile>
+  </Object>
+</Component>

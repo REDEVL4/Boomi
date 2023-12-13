@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>f9ac56cc-d1e1-4f1f-8072-a7897bc4aad2</Id>
+  <Type>profile.db</Type>
+  <Name>WarehouseSellers DB</Name>
+  <Version>3</Version>
+  <FolderId name="Training-test-TEST/Process Library/Boomi Training">
+  6311817</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>dbsubtype</Name>
+      <Value>dbread</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <DatabaseProfile strict="true" version="2">
+      <ProfileProperties>
+        <DatabaseGeneralInfo executionType="dbread" />
+      </ProfileProperties>
+      <DataElements>
+        <DBStatement key="2" name="Statement" isNode="true"
+        statementType="select" tableName="" storedProcedure="">
+          <DBFields key="3" name="Fields" isNode="true"
+          type="result_set">
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="5" name="Id" isNode="true"
+            isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="9" name="SellerId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="12" name="WarehouseId"
+            isNode="true" isMappable="true" dataType="character">
+              <DataFormat>
+                <ProfileCharacterFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="10" name="createdAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+            <DatabaseElement mandatory="false"
+            enforceUnique="false" key="11" name="updatedAt"
+            isNode="true" isMappable="true" dataType="datetime">
+              <DataFormat>
+                <ProfileDateFormat />
+              </DataFormat>
+            </DatabaseElement>
+          </DBFields>
+          <DBParameters key="4" name="Parameters" isNode="true">
+            <DBParameter key="13" name="updatedGreaterThan"
+            isNode="true" isMappable="false" dataType="number">
+              <DataFormat>
+                <ProfileNumberFormat />
+              </DataFormat>
+            </DBParameter>
+          </DBParameters>
+          <sql>SELECT * FROM testdb.warehousesellers where
+          TIMESTAMPDIFF(MINUTE,updatedAt,UTC_TIMESTAMP()) &gt;
+          ?</sql>
+        </DBStatement>
+      </DataElements>
+    </DatabaseProfile>
+  </Object>
+</Component>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>d8cbdf18-4571-447f-8a9d-f895fd16d5eb</Id>
+  <Type>connector-action</Type>
+  <Name>LocalMySQL SellerProducts GET</Name>
+  <Version>2</Version>
+  <FolderId name="Training-test-TEST/use-case-poc">
+  6314545</FolderId>
+  <AccountId>trainingtesttest-T5U0HX</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>database</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>
+      EMBEDDED|databaseparameterchooser|8de0ba6a-c0ee-48b5-b1e5-cec765a9e3a8</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="8de0ba6a-c0ee-48b5-b1e5-cec765a9e3a8"
+    refId="db-profile" name="SellerProducts DB" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving enabled="false" directory="" />
+      <Configuration>
+        <DatabaseGetAction batchCount="0" maxRows="0">
+          <ReadProfile profileId="8de0ba6a-c0ee-48b5-b1e5-cec765a9e3a8" />
+        </DatabaseGetAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>
